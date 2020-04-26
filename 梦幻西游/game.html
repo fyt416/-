@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>梦幻西游</title>
+	<style>
+		html,body,.main{
+            margin: 0;
+            padding: 0;
+			height: 100%;
+        }
+        .main {
+        	width: 100%;
+        	height: 100%;
+        }
+		.content {
+			/*200*4+50*3*/
+			width: 950px;
+			height: 180px;
+			/*background-color: pink;*/
+			/*使用定位元素 margin: 0 auto;就不起作用了*/
+			position: absolute;
+			left: 50%;
+			margin-left: -475px;
+			bottom: 100px;
+			/*padding: 0*/
+		}
+		.content ul::after {
+			/*清除浮动*/
+			content: "";
+			display: block;
+			clear: both;
+		}
+		.content ul li {
+			/*去掉li的点*/
+			list-style: none;
+			float: left;
+			width: 180px;
+			height: 200px;
+			/*超出宽度的部分隐藏*/
+			overflow: hidden;
+			margin-right: 50px;
+		}
+		.content li:last-child {
+			margin-right: 0;
+		}
+		.content > ul > li > div > img{
+            width: 100%;
+        }
+		.content div {
+			width: 1600px;
+            height: 180px;
+			animation-name: roles;
+			animation-duration: 1s;
+			animation-timing-function: steps(8);
+			animation-iteration-count: infinite;
+		}
+		/*定义动画*/
+		@keyframes roles {
+			from {
+				margin-left: 0;
+			}
+			to {
+				margin-left: -1600px;
+			}
+		}
+		
+		.main .bj {
+			height: 100%;
+			width: 3920px;
+			overflow: hidden;
+            background-image: url('./images/bg.jpg');
+
+			animation-name: bj;
+			animation-duration: 30s;
+			animation-timing-function: linear;
+            animation-iteration-count: infinite;
+		}
+
+		/*定义动画*/
+		@keyframes bj {
+			from {
+				margin-left: -1920px;
+			}
+			to {
+				margin-left: 0
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="bj"></div>
+	</div>
+
+	<div class="content">
+		<ul>
+			<li><div><img src="./images/wk.png" alt=""></div></li>
+			<li><div><img src="./images/ts.png" alt=""></div></li>
+			<li><div><img src="./images/bj.png" alt=""></div></li>
+			<li><div><img src="./images/ss.png" alt=""></div></li>
+		</ul>
+	</div>
+</body>
+</html>
